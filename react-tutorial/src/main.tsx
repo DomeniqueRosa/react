@@ -17,13 +17,10 @@ const router = createBrowserRouter([
     element : <TaskPage />
   }
 ]);
-const rootElement = document.getElementById("root");
-if (rootElement) {
-  createRoot(rootElement).render(
-    <StrictMode>
-      <RouterProvider router={router}/>
-    </StrictMode>
-  );
-} else {
-  throw new Error('Root element not found');
-}
+const rootElement = document.getElementById("root") as HTMLElement;  // Aqui está a mudança
+createRoot(rootElement).render(
+  <StrictMode>
+    <RouterProvider router={router}/>
+  </StrictMode>
+);
+
