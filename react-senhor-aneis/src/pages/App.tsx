@@ -1,21 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import Card from "../components/Card";
+import type {Movie} from "../model/Movie";
 
 import logo from "../assets/convincely.svg";
 export default function App() {
-  type Movie = {
-    _id: string;
-    name: string;
-    runtimeInMinutes: number;
-    budgetInMillions: number;
-  };
+
   const [movies, setMovies] = useState<Movie[]>([]);
   const [moviesFilter, setmoviesFilter] = useState<Movie[]>([]);
 
   const input = useRef<HTMLInputElement>(null);
-
- 
 
   const filtermovie = () => {
     const valor = input.current?.value;

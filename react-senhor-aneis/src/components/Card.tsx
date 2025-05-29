@@ -1,7 +1,4 @@
-type Movie = {
-  _id: string;
-  name: string;
-};
+import type {Movie} from "../model/Movie";
 import movie from "../assets/Vector.svg";
 import award from "../assets/Academy-award.svg";
 export default function Card(props: Movie) {
