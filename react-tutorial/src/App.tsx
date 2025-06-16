@@ -26,7 +26,7 @@ function App() {
     },
   ]);
 
-  const my = (id : any) => {
+  const my = (id: any) => {
     setTasks(
       tasks.map((task) =>
         task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
@@ -34,11 +34,11 @@ function App() {
     );
   };
 
-  function onRemove(id : any) {
+  function onRemove(id: any) {
     setTasks(tasks.filter((task) => task.id !== id));
   }
 
-  function onAdd(title : any, description : any) {
+  function onAdd(title: any, description: any) {
     const newT = {
       id: Date.now(),
       title,
@@ -52,10 +52,10 @@ function App() {
   useEffect(() => {
     // Defina uma função assíncrona dentro do useEffect
     const fetchData = async () => {
-      const response = await fetch( 
+      const response = await fetch(
         "https://jsonplaceholder.typicode.com/todos?_limit=10",
         {
-          method : "GET",
+          method: "GET",
         }
       );
       const data = await response.json();
@@ -69,7 +69,12 @@ function App() {
 
   return (
     <div className="bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px]">
+      <div className="w-[500px] center">
+        <div className="flex gap-2 ">
+          {Array.from({ length: 10 }, (_, index) => {
+            return <p className=" bg-gray-500 text-white px-2  rounded-md border-2">{index}</p>;
+          })}
+        </div>
         <Title titulo="Gerenciador de tarefas" />
         <AddTask add={onAdd} />
         {tasks.map((task) => (
